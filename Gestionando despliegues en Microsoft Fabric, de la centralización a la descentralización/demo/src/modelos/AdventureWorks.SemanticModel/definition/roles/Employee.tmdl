@@ -1,0 +1,7 @@
+role Employee
+	modelPermission: read
+
+	tablePermission Employee = [Email address] == USERPRINCIPALNAME()
+
+	annotation PBI_Id = fc88b97058e34a8a871f360ae9133eb0
+

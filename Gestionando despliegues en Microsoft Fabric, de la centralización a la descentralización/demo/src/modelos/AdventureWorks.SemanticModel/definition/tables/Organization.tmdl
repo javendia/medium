@@ -1,0 +1,46 @@
+table Organization
+	lineageTag: b9265d82-5473-49af-ba9d-900d8ad81d12
+
+	column OrganizationKey
+		dataType: int64
+		isHidden
+		isKey
+		formatString: 0
+		isAvailableInMdx: false
+		lineageTag: 4478120f-4941-48a2-a7b3-665c84745eed
+		summarizeBy: none
+		sourceColumn: OrganizationKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Percentage of ownership'
+		dataType: string
+		lineageTag: 4529b345-88fc-449a-a54d-e9178f77bd8c
+		summarizeBy: none
+		sourceColumn: Percentage of ownership
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Organization name'
+		dataType: string
+		lineageTag: ea4250f2-27df-4c20-8d88-4c13f6faa04d
+		summarizeBy: none
+		sourceColumn: Organization name
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Organization = m
+		mode: import
+		queryGroup: dim
+		source =
+				let
+				    Source = Sql.Databases(Server, [CreateNavigationProperties=false]),
+				    AdventureWorksDW = Source{[Name=Database]}[Data],
+				    dbo_DimOrganization = AdventureWorksDW{[Schema="dim",Item="Organization"]}[Data]
+				in
+				    dbo_DimOrganization
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

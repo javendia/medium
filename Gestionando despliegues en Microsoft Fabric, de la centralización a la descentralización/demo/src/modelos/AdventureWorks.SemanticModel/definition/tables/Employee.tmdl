@@ -1,0 +1,172 @@
+table Employee
+	lineageTag: dece57fa-89f5-4331-b6d0-b629c66c447b
+
+	column EmployeeKey
+		dataType: int64
+		isHidden
+		isKey
+		formatString: 0
+		isAvailableInMdx: false
+		lineageTag: d3ff45c4-5263-4e50-8b94-ef05c6882989
+		summarizeBy: none
+		sourceColumn: EmployeeKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ParentEmployeeKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 3bfd6b8b-33a1-4f52-969d-7cbdeda7c431
+		summarizeBy: none
+		sourceColumn: ParentEmployeeKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmployeeNationalIDAlternateKey
+		dataType: string
+		lineageTag: 25eb661d-4db2-4945-bf59-dcfc807a19ee
+		summarizeBy: none
+		sourceColumn: EmployeeNationalIDAlternateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ParentEmployeeNationalIDAlternateKey
+		dataType: string
+		lineageTag: 68cac1b9-0fa2-4fd7-9b7e-0ed54b3f91b3
+		summarizeBy: none
+		sourceColumn: ParentEmployeeNationalIDAlternateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesTerritoryKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 0c640019-ea2d-4594-98ef-3786f6be78d4
+		summarizeBy: none
+		sourceColumn: SalesTerritoryKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Title
+		dataType: string
+		lineageTag: 2224dd03-8bf1-4374-b402-0282ee4102c4
+		summarizeBy: none
+		sourceColumn: Title
+
+		annotation SummarizationSetBy = Automatic
+
+	column Phone
+		dataType: string
+		lineageTag: bef50e6b-77b8-4115-815b-663e74a78b9d
+		summarizeBy: none
+		sourceColumn: Phone
+
+		annotation SummarizationSetBy = Automatic
+
+	column Gender
+		dataType: string
+		lineageTag: 9ed7f39b-acca-42ce-adc8-823df42a9614
+		summarizeBy: none
+		sourceColumn: Gender
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Hire date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 3d116d92-33ed-48a2-92e8-d1e604c0f354
+		summarizeBy: none
+		sourceColumn: Hire date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Birth date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 9d8a72d0-1e6a-4cd7-ba6e-b5e5ea028093
+		summarizeBy: none
+		sourceColumn: Birth date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Email address'
+		dataType: string
+		lineageTag: 3bf15820-8f37-41bd-a646-15b4d482ff90
+		summarizeBy: none
+		sourceColumn: Email address
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Marital status'
+		dataType: string
+		lineageTag: cbecd4f3-8f02-4f66-96fe-d908c5df2c40
+		summarizeBy: none
+		sourceColumn: Marital status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Emergency contact name'
+		dataType: string
+		lineageTag: 32792354-2b1b-4b13-af90-d10c33193934
+		summarizeBy: none
+		sourceColumn: Emergency contact name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Emergency contact phone'
+		dataType: string
+		lineageTag: 49a4ed4a-a330-4788-9b4e-3797eed99f0d
+		summarizeBy: none
+		sourceColumn: Emergency contact phone
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Start date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: a12eab5e-d09a-4f2c-a5ea-431137611fad
+		summarizeBy: none
+		sourceColumn: Start date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'End date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 80ef37f4-9210-46b0-8744-74a98cd43b5e
+		summarizeBy: none
+		sourceColumn: End date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Full name'
+		dataType: string
+		lineageTag: 9255b20f-b1a1-4a67-a462-35f58b8f3eca
+		summarizeBy: none
+		sourceColumn: Full name
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Employee = m
+		mode: import
+		queryGroup: dim
+		source =
+				let
+				    Source = Sql.Databases(Server, [CreateNavigationProperties=false]),
+				    AdventureWorksDW = Source{[Name=Database]}[Data],
+				    dbo_DimEmployee = AdventureWorksDW{[Schema="dim",Item="Employee"]}[Data]
+				in
+				    dbo_DimEmployee
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

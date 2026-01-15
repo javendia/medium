@@ -1,0 +1,45 @@
+model Model
+	culture: es-ES
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: es-ES
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+queryGroup dim
+
+	annotation PBI_QueryGroupOrder = 1
+
+queryGroup fact
+
+	annotation PBI_QueryGroupOrder = 2
+
+queryGroup Parameters
+
+	annotation PBI_QueryGroupOrder = 0
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_QueryOrder = ["Account","Date","Department Group","Employee","Product","Organization","Promotion","Reseller","Sales Territory","Scenario","Reseller Sales","Finance","Server","Database"]
+
+annotation __TEdtr = 1
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table Account
+ref table Date
+ref table Employee
+ref table Product
+ref table Finance
+ref table Promotion
+ref table 'Sales Territory'
+ref table Scenario
+ref table Organization
+ref table 'Department Group'
+ref table Reseller
+ref table 'Reseller Sales'
+
+ref role Employee
+
+ref cultureInfo es-ES
+

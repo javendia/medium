@@ -1,0 +1,213 @@
+table 'Reseller Sales'
+	lineageTag: 1adca20a-48b9-49b9-9ee8-8d41eec75d17
+
+	column ProductKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		isAvailableInMdx: false
+		lineageTag: 1f459044-a761-4df1-8047-2fa7b9c64191
+		summarizeBy: none
+		sourceColumn: ProductKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ResellerKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		isAvailableInMdx: false
+		lineageTag: 245dd5c7-dcc3-4849-860b-55fbae7fe5aa
+		summarizeBy: none
+		sourceColumn: ResellerKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmployeeKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		isAvailableInMdx: false
+		lineageTag: e354bf9d-3ddb-4885-817b-c92486829d80
+		summarizeBy: none
+		sourceColumn: EmployeeKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column PromotionKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		isAvailableInMdx: false
+		lineageTag: 1e443718-3560-4dc5-acdf-68d41d0eb207
+		summarizeBy: none
+		sourceColumn: PromotionKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesTerritoryKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		isAvailableInMdx: false
+		lineageTag: bc055523-a04e-466b-b45c-c34ed34b176f
+		summarizeBy: none
+		sourceColumn: SalesTerritoryKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Freight
+		dataType: decimal
+		formatString: #,0.###############\ "€";-#,0.###############\ "€";#,0.###############\ "€"
+		lineageTag: 935f4356-b1e2-4670-bb7d-cdbee36f6231
+		summarizeBy: none
+		sourceColumn: Freight
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
+
+	column 'Order quantity'
+		dataType: int64
+		formatString: 0
+		lineageTag: 437c8bbf-e70d-4c73-9134-bead07f2c4c9
+		summarizeBy: none
+		sourceColumn: Order quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Unit price'
+		dataType: decimal
+		formatString: #,0.###############\ "€";-#,0.###############\ "€";#,0.###############\ "€"
+		lineageTag: 2e70faf7-353f-4fd3-aa62-519f118dc292
+		summarizeBy: none
+		sourceColumn: Unit price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
+
+	column 'Extended amount'
+		dataType: decimal
+		formatString: #,0.###############\ "€";-#,0.###############\ "€";#,0.###############\ "€"
+		lineageTag: 3d1c132d-5f49-498b-bd53-8467d959050d
+		summarizeBy: none
+		sourceColumn: Extended amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
+
+	column 'Unit price discount pct'
+		dataType: decimal
+		lineageTag: 531f1798-f0de-40b8-9ffa-c8f3b1ae9653
+		summarizeBy: none
+		sourceColumn: Unit price discount pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Discount amount'
+		dataType: decimal
+		lineageTag: 50be5206-b8f8-4066-878b-2d3e8ed7d846
+		summarizeBy: none
+		sourceColumn: Discount amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Product standard cost'
+		dataType: decimal
+		formatString: #,0.###############\ "€";-#,0.###############\ "€";#,0.###############\ "€"
+		lineageTag: d7316484-168a-4027-8e1a-b8f06bd62c6e
+		summarizeBy: none
+		sourceColumn: Product standard cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
+
+	column 'Total product cost'
+		dataType: decimal
+		formatString: #,0.###############\ "€";-#,0.###############\ "€";#,0.###############\ "€"
+		lineageTag: d612b9ee-7fb2-40a7-8f34-e74de06d9d3a
+		summarizeBy: none
+		sourceColumn: Total product cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
+
+	column 'Sales amount'
+		dataType: decimal
+		formatString: #,0.###############\ "€";-#,0.###############\ "€";#,0.###############\ "€"
+		lineageTag: e0e27e40-1378-4715-ba4f-806e83ab1f39
+		summarizeBy: none
+		sourceColumn: Sales amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
+
+	column 'Tax amt'
+		dataType: decimal
+		formatString: #,0.###############\ "€";-#,0.###############\ "€";#,0.###############\ "€"
+		lineageTag: ade633db-e663-477c-8562-b30f5dc9b78b
+		summarizeBy: none
+		sourceColumn: Tax amt
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
+
+	column 'Order date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 93bb1183-f748-4618-a55b-47c7de3ba6b8
+		summarizeBy: none
+		sourceColumn: Order date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Due date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 9ca9bbf6-2d95-4d77-906d-a7f622eb004a
+		summarizeBy: none
+		sourceColumn: Due date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Ship date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 6ee15463-d5db-44ba-81fc-518ab639bfe5
+		summarizeBy: none
+		sourceColumn: Ship date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition 'Reseller Sales' = m
+		mode: import
+		queryGroup: fact
+		source =
+				let
+				    Source = Sql.Databases(Server, [CreateNavigationProperties=false]),
+				    AdventureWorksDW = Source{[Name=Database]}[Data],
+				    dbo_FactResellerSales = AdventureWorksDW{[Schema="fact",Item="ResellerSales"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(dbo_FactResellerSales,{{"Order date", type date}, {"Due date", type date}, {"Ship date", type date}, {"Unit price discount pct", Currency.Type}, {"Discount amount", Currency.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,157 @@
+table Sales
+	lineageTag: 87e290a9-0694-4e06-9ec8-d9206202f98d
+
+	column 'Order Number'
+		dataType: int64
+		formatString: 0
+		lineageTag: 4024cddd-cdd2-470f-84fa-9fdc22e7b516
+		summarizeBy: none
+		sourceColumn: Order Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Line Number'
+		dataType: int64
+		formatString: 0
+		lineageTag: 3ee007a0-1ad9-4764-8115-247a3ad3d63d
+		summarizeBy: none
+		sourceColumn: Line Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order Date'
+		dataType: dateTime
+		isHidden
+		formatString: dd/mm/yyyy
+		isAvailableInMdx: false
+		lineageTag: 4f3ab903-cf51-456c-bd17-f892975c41c0
+		summarizeBy: none
+		sourceColumn: Order Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column 'Delivery Date'
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 7bd6d815-9926-485b-8746-112635c3ebbe
+		summarizeBy: none
+		sourceColumn: Delivery Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column CustomerKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		isAvailableInMdx: false
+		lineageTag: 447784c9-3664-41df-af66-85a1548ad965
+		summarizeBy: none
+		sourceColumn: CustomerKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column StoreKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		isAvailableInMdx: false
+		lineageTag: b1cbfd37-1811-4f16-ba39-d64caf0ece56
+		summarizeBy: none
+		sourceColumn: StoreKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		isAvailableInMdx: false
+		lineageTag: d6cbb68e-c1d8-4a48-8680-515b2bd0cadf
+		summarizeBy: none
+		sourceColumn: ProductKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quantity
+		dataType: int64
+		formatString: 0
+		lineageTag: adecb326-4341-469f-bc44-cc170a4edf2d
+		summarizeBy: none
+		sourceColumn: Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Unit Price'
+		dataType: decimal
+		formatString: #,0.###############\ "€";-#,0.###############\ "€";#,0.###############\ "€"
+		lineageTag: 4ea488a2-4838-4849-95cf-60aa92dca516
+		summarizeBy: sum
+		sourceColumn: Unit Price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
+
+	column 'Net Price'
+		dataType: decimal
+		formatString: #,0.###############\ "€";-#,0.###############\ "€";#,0.###############\ "€"
+		lineageTag: 56457bcf-1d4a-4dc0-92fd-09ec9b1a9b91
+		summarizeBy: sum
+		sourceColumn: Net Price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
+
+	column 'Unit Cost'
+		dataType: decimal
+		formatString: #,0.###############\ "€";-#,0.###############\ "€";#,0.###############\ "€"
+		lineageTag: 055db25b-32ea-4571-afd1-0f86f1f247b0
+		summarizeBy: sum
+		sourceColumn: Unit Cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
+
+	column 'Currency Code'
+		dataType: string
+		lineageTag: 4bf267b8-6e94-4ef1-a0dc-ce2b1095a587
+		summarizeBy: none
+		sourceColumn: Currency Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Exchange Rate'
+		dataType: double
+		lineageTag: 09958049-d953-4497-b0a4-67c40aa70066
+		summarizeBy: sum
+		sourceColumn: Exchange Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition Sales = m
+		mode: import
+		queryGroup: fact
+		source =
+				let
+				    Source = Sql.Databases(Server),
+				    Contoso10M = Source{[Name=Database]}[Data],
+				    dbo_Store = Contoso10M{[Schema=Schema,Item="Sales"]}[Data]
+				in
+				    dbo_Store
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

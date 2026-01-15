@@ -1,0 +1,38 @@
+model Model
+	culture: es-ES
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+queryGroup dim
+
+	annotation PBI_QueryGroupOrder = 1
+
+queryGroup fact
+
+	annotation PBI_QueryGroupOrder = 2
+
+queryGroup Parameters
+
+	annotation PBI_QueryGroupOrder = 0
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_QueryOrder = ["Customer","Date","Product","Store","Sales","Server","Database","Schema"]
+
+annotation __TEdtr = 1
+
+annotation PBI_ProTooling = ["WebModelingEdit","SLL","DevMode"]
+
+annotation __LastRPTime = 134082062467366725
+
+ref table Customer
+ref table Date
+ref table Product
+ref table Store
+ref table Sales
+
+ref cultureInfo es-ES
+

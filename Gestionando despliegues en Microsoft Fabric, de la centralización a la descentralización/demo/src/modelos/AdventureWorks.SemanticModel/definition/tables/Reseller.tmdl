@@ -1,0 +1,54 @@
+table Reseller
+	lineageTag: 05139e64-6fd5-4339-a7ec-b87b6fe09535
+
+	column ResellerKey
+		dataType: int64
+		isHidden
+		isKey
+		formatString: 0
+		isAvailableInMdx: false
+		lineageTag: 8b8fa37a-ed1a-4289-9166-7f860f2e280f
+		summarizeBy: none
+		sourceColumn: ResellerKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Phone
+		dataType: string
+		lineageTag: 09c2405c-cd7a-49c9-be03-3f57c463ba92
+		summarizeBy: none
+		sourceColumn: Phone
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Business type'
+		dataType: string
+		lineageTag: 34153f63-01e9-4f88-854e-c744252a6269
+		summarizeBy: none
+		sourceColumn: Business type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Reseller name'
+		dataType: string
+		lineageTag: c1159774-ec21-49a3-ac83-2adb846b45ce
+		summarizeBy: none
+		sourceColumn: Reseller name
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Reseller = m
+		mode: import
+		queryGroup: dim
+		source =
+				let
+				    Source = Sql.Databases(Server, [CreateNavigationProperties=false]),
+				    AdventureWorksDW = Source{[Name=Database]}[Data],
+				    dbo_DimReseller = AdventureWorksDW{[Schema="dim",Item="Reseller"]}[Data]
+				in
+				    dbo_DimReseller
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

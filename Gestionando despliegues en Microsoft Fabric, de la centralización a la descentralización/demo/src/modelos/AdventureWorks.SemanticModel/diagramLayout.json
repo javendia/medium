@@ -1,0 +1,338 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 907.90030579260167,
+            "y": 602.50790230321809
+          },
+          "nodeIndex": "Account",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 335.69185942570539,
+            "y": -50
+          },
+          "nodeIndex": "Customer",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 50,
+            "y": 576.73770671260866
+          },
+          "nodeIndex": "Date",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1141.9003057926016,
+            "y": 326.25395115160904
+          },
+          "nodeIndex": "Employee",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 335.72869358932803,
+            "y": 518.84925962956208
+          },
+          "nodeIndex": "Product",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 620.84270656634192,
+            "y": 619.03548950460242
+          },
+          "nodeIndex": "Finance",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1659.9003057926016,
+            "y": 326.25395115160904
+          },
+          "nodeIndex": "Promotion",
+          "nodeLineageTag": "9e0e61a5-1ac5-4303-b71a-7cf32ca3425b",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {},
+          "nodeIndex": "Organization",
+          "nodeLineageTag": "b9265d82-5473-49af-ba9d-900d8ad81d12",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {},
+          "nodeIndex": "Scenario",
+          "nodeLineageTag": "80e3e588-20ea-48a4-9e9e-8e6c3e7cce8e",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {},
+          "nodeIndex": "Reseller",
+          "nodeLineageTag": "05139e64-6fd5-4339-a7ec-b87b6fe09535",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {},
+          "nodeIndex": "Department Group",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1943.9003057926016,
+            "y": 376.25395115160904
+          },
+          "nodeIndex": "Sales Territory",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {},
+          "nodeIndex": "Reseller Sales",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    },
+    {
+      "ordinal": 1,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 334.19893531421837,
+            "y": 650.44568107552448
+          },
+          "nodeIndex": "Customer",
+          "nodeLineageTag": "be1ea06f-e49e-4279-b82a-db83f4f31aa9",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 959.91675726638391,
+            "y": 249.22284053776229
+          },
+          "nodeIndex": "Date",
+          "nodeLineageTag": "a2b841df-08bc-4926-b0c1-9930ae2cef26",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 694.91675726638391,
+            "y": 443.03708471758205
+          },
+          "nodeIndex": "Product",
+          "nodeLineageTag": "7f998f01-59c5-4b74-beb9-0a9f508f49b2",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 287.79889848475011,
+            "y": -50
+          },
+          "nodeIndex": "Promotion",
+          "nodeLineageTag": "9e0e61a5-1ac5-4303-b71a-7cf32ca3425b",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 50,
+            "y": 422.73407650661585
+          },
+          "nodeIndex": "Sales Territory",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "InternetSales",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    },
+    {
+      "ordinal": 2,
+      "scrollPosition": {
+        "x": 0,
+        "y": 235.57692307692307
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 336.76415998909329,
+            "y": 303.33324252663016
+          },
+          "nodeIndex": "Finance",
+          "nodeLineageTag": "d0322208-c329-4537-87da-0fa942b54d2b",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 126.67987794338097,
+            "y": -50
+          },
+          "nodeIndex": "Account",
+          "nodeLineageTag": "7e85bf8a-220e-4361-9815-15d601a454fd",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 50,
+            "y": 408.56594611145522
+          },
+          "nodeIndex": "Organization",
+          "nodeLineageTag": "b9265d82-5473-49af-ba9d-900d8ad81d12",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 631.71286403282056,
+            "y": 439.51987888324413
+          },
+          "nodeIndex": "Scenario",
+          "nodeLineageTag": "80e3e588-20ea-48a4-9e9e-8e6c3e7cce8e",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 344.65381261058985,
+            "y": 580.69460270862282
+          },
+          "nodeIndex": "Date",
+          "nodeLineageTag": "a2b841df-08bc-4926-b0c1-9930ae2cef26",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 510.86893100743958,
+            "y": 98.75290101727478
+          },
+          "nodeIndex": "Department Group",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Finance",
+      "zoomValue": 104,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Finance",
+  "defaultDiagram": "All tables"
+}

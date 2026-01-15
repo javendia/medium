@@ -1,0 +1,5 @@
+find_replace:
+
+    - find_value: "ec3f31c5-e50d-457c-a6d8-09f946548f3f"
+      replace_value:
+        PROD: "3ca31a76-6d89-4a0a-bf89-21a8198f4c66"

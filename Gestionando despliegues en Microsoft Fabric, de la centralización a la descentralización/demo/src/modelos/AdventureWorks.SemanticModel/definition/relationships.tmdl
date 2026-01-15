@@ -1,0 +1,42 @@
+relationship 8a22266e-86ff-4efb-bd00-34836c8be6ac
+	fromColumn: Finance.AccountKey
+	toColumn: Account.AccountKey
+
+	annotation PBI_IsFromSource = FS
+
+relationship 3375f65d-43a6-5343-1442-578772f84c12
+	fromColumn: Finance.OrganizationKey
+	toColumn: Organization.OrganizationKey
+
+relationship 8854352b-381b-09e8-da61-99ecbfc29d37
+	fromColumn: Finance.DepartmentGroupKey
+	toColumn: 'Department Group'.DepartmentGroupKey
+
+relationship cc23e959-ac9e-d78f-e3d8-c9b3524df619
+	fromColumn: Finance.ScenarioKey
+	toColumn: Scenario.ScenarioKey
+
+relationship e9f16adc-2644-3b8d-3b2b-7505da7486dc
+	fromColumn: 'Reseller Sales'.EmployeeKey
+	toColumn: Employee.EmployeeKey
+
+relationship 8d631ad7-360e-439d-5b46-53b664607a21
+	fromColumn: 'Reseller Sales'.ProductKey
+	toColumn: Product.ProductKey
+
+relationship dd4cd7a0-7365-faf5-8ad3-ba4df078c3df
+	fromColumn: 'Reseller Sales'.PromotionKey
+	toColumn: Promotion.PromotionKey
+
+relationship 251f44af-9cee-8685-9d9a-45dcfbbb047b
+	fromColumn: 'Reseller Sales'.ResellerKey
+	toColumn: Reseller.ResellerKey
+
+relationship afda6eef-15b0-dbf6-8bb2-c1dd8b350c46
+	fromColumn: 'Reseller Sales'.SalesTerritoryKey
+	toColumn: 'Sales Territory'.SalesTerritoryKey
+
+relationship d5ad6cd2-6662-a413-2270-6a8063c70123
+	fromColumn: Finance.Date
+	toColumn: Date.Date
+

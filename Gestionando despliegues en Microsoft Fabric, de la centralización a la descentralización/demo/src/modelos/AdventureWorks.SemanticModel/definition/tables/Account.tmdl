@@ -1,0 +1,78 @@
+table Account
+	lineageTag: 7e85bf8a-220e-4361-9815-15d601a454fd
+
+	column AccountKey
+		dataType: int64
+		isHidden
+		isKey
+		formatString: 0
+		isAvailableInMdx: false
+		lineageTag: fb71b253-42e5-4c02-ae70-ad6a67b350a3
+		summarizeBy: none
+		sourceColumn: AccountKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Operator
+		dataType: string
+		lineageTag: dfcbda19-9c73-49f9-9492-436a050b7cf0
+		summarizeBy: none
+		sourceColumn: Operator
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Account description'
+		dataType: string
+		lineageTag: d8c90c59-d046-4b15-b0d5-d8cdd55096be
+		summarizeBy: none
+		sourceColumn: Account description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Account type'
+		dataType: string
+		lineageTag: 382e5cc8-a6b7-4905-a9b5-f5da7d495e7f
+		summarizeBy: none
+		sourceColumn: Account type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Custom members'
+		dataType: string
+		lineageTag: 156f9cf6-04a2-40b6-ae22-af535172907e
+		summarizeBy: none
+		sourceColumn: Custom members
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Value type'
+		dataType: string
+		lineageTag: 6a5de657-6835-4ea7-8140-e0e4193056a2
+		summarizeBy: none
+		sourceColumn: Value type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Custom member options'
+		dataType: string
+		lineageTag: 13fa970e-bb8f-4497-a9a1-5160c62362d5
+		summarizeBy: none
+		sourceColumn: Custom member options
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Account = m
+		mode: import
+		queryGroup: dim
+		source =
+				let
+				    Source = Sql.Databases(Server, [CreateNavigationProperties=false]),
+				    AdventureWorksDW = Source{[Name=Database]}[Data],
+				    dbo_DimAccount = AdventureWorksDW{[Schema="dim",Item="Account"]}[Data]
+				in
+				    dbo_DimAccount
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

@@ -1,0 +1,38 @@
+table 'Department Group'
+	lineageTag: 1d547347-f567-4d73-8e3a-0b19128bd408
+
+	column DepartmentGroupKey
+		dataType: int64
+		isHidden
+		isKey
+		formatString: 0
+		isAvailableInMdx: false
+		lineageTag: 364297e3-75e6-4792-9970-e50ab17f23d8
+		summarizeBy: none
+		sourceColumn: DepartmentGroupKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Department group name'
+		dataType: string
+		lineageTag: 69508236-db2b-4ca8-be49-52ae01ec00ac
+		summarizeBy: none
+		sourceColumn: Department group name
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Department Group' = m
+		mode: import
+		queryGroup: dim
+		source =
+				let
+				    Source = Sql.Databases(Server, [CreateNavigationProperties=false]),
+				    AdventureWorksDW = Source{[Name=Database]}[Data],
+				    dbo_DimDepartmentGroup = AdventureWorksDW{[Schema="dim",Item="DepartmentGroup"]}[Data]
+				in
+				    dbo_DimDepartmentGroup
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

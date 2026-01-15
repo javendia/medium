@@ -1,0 +1,88 @@
+table Finance
+	lineageTag: d0322208-c329-4537-87da-0fa942b54d2b
+
+	column OrganizationKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		isAvailableInMdx: false
+		lineageTag: c7305bbd-d173-4c78-8753-987d5f4e7f29
+		summarizeBy: none
+		sourceColumn: OrganizationKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column DepartmentGroupKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		isAvailableInMdx: false
+		lineageTag: 6f50fa33-54c6-43d6-aa45-c2d6deb6d35f
+		summarizeBy: none
+		sourceColumn: DepartmentGroupKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ScenarioKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		isAvailableInMdx: false
+		lineageTag: 87cd5c93-d57d-43d8-a9b7-aa2ca030ea62
+		summarizeBy: none
+		sourceColumn: ScenarioKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column AccountKey
+		dataType: int64
+		isHidden
+		formatString: 0
+		isAvailableInMdx: false
+		lineageTag: d1a2b234-4c31-4a8a-b557-f772ee180c88
+		summarizeBy: none
+		sourceColumn: AccountKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Amount
+		dataType: decimal
+		isHidden
+		isAvailableInMdx: false
+		lineageTag: 5828acbe-45a3-4658-a154-a9d4e86e3a24
+		summarizeBy: none
+		sourceColumn: Amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Date
+		dataType: dateTime
+		isHidden
+		formatString: Long Date
+		isAvailableInMdx: false
+		lineageTag: ef699e53-4182-4555-9692-a0b8235b63e2
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition Finance = m
+		mode: import
+		queryGroup: fact
+		source =
+				let
+				    Source = Sql.Databases(Server, [CreateNavigationProperties=false]),
+				    AdventureWorksDW = Source{[Name=Database]}[Data],
+				    dbo_FactFinance = AdventureWorksDW{[Schema="fact",Item="Finance"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(dbo_FactFinance,{{"Date", type date}, {"Amount", Currency.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

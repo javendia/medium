@@ -1,0 +1,135 @@
+table Promotion
+	lineageTag: 9e0e61a5-1ac5-4303-b71a-7cf32ca3425b
+
+	column PromotionKey
+		dataType: int64
+		isHidden
+		isKey
+		formatString: 0
+		isAvailableInMdx: false
+		lineageTag: e9f2c622-2a44-4df0-84ad-8a669043a541
+		summarizeBy: none
+		sourceColumn: PromotionKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'English promotion name'
+		dataType: string
+		lineageTag: 1a6bf389-dc52-49d7-bee2-5127a61f0272
+		summarizeBy: none
+		sourceColumn: English promotion name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Spanish promotion name'
+		dataType: string
+		lineageTag: 645a081c-723a-4292-96c8-ac5ca571826e
+		summarizeBy: none
+		sourceColumn: Spanish promotion name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'French promotion name'
+		dataType: string
+		lineageTag: d2b020ea-c35c-4eeb-9f46-182b6c23abdf
+		summarizeBy: none
+		sourceColumn: French promotion name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Discount pct'
+		dataType: decimal
+		lineageTag: 4de70682-3276-44de-8121-955669d8a014
+		summarizeBy: none
+		sourceColumn: Discount pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'English promotion type'
+		dataType: string
+		lineageTag: 28ea4e1d-c885-4712-8edc-25f3ccbd1dbc
+		summarizeBy: none
+		sourceColumn: English promotion type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Spanish promotion type'
+		dataType: string
+		lineageTag: 7e18a33d-97f9-401d-98c8-d4e17c3dc5aa
+		summarizeBy: none
+		sourceColumn: Spanish promotion type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'French promotion type'
+		dataType: string
+		lineageTag: 7f73825f-2e2d-42c0-b606-9be6c49245d0
+		summarizeBy: none
+		sourceColumn: French promotion type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'English promotion category'
+		dataType: string
+		lineageTag: 1ab65e31-3ebb-4436-b877-05725f5880de
+		summarizeBy: none
+		sourceColumn: English promotion category
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Spanish promotion category'
+		dataType: string
+		lineageTag: e764230a-219d-4c1e-b504-4b975f1f95da
+		summarizeBy: none
+		sourceColumn: Spanish promotion category
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'French promotion category'
+		dataType: string
+		lineageTag: a4b6c0ea-e07a-41c6-8336-9e4ee8645540
+		summarizeBy: none
+		sourceColumn: French promotion category
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Start date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 8546bfed-1772-4fe8-a093-6c17a638d33f
+		summarizeBy: none
+		sourceColumn: Start date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'End date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: c0e3b589-7e8c-4c2b-a9dd-3f953314a36c
+		summarizeBy: none
+		sourceColumn: End date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition Promotion = m
+		mode: import
+		queryGroup: dim
+		source =
+				let
+				    Source = Sql.Databases(Server, [CreateNavigationProperties=false]),
+				    AdventureWorksDW = Source{[Name=Database]}[Data],
+				    dbo_DimPromotion = AdventureWorksDW{[Schema="dim",Item="Promotion"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(dbo_DimPromotion,{{"Start date", type date}, {"End date", type date}, {"Discount pct", Currency.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,55 @@
+table 'Sales Territory'
+	lineageTag: f5e9d241-dd36-4fda-bf92-44822a4cfe4c
+
+	column SalesTerritoryKey
+		dataType: int64
+		isHidden
+		isKey
+		formatString: 0
+		isAvailableInMdx: false
+		lineageTag: 2b707b29-3219-42d4-8f4b-2d3fd2b0e391
+		summarizeBy: none
+		sourceColumn: SalesTerritoryKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sales territory region'
+		dataType: string
+		lineageTag: 2cdae8a4-6b19-4524-9a24-bb7841f49e9c
+		summarizeBy: none
+		sourceColumn: Sales territory region
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sales territory country'
+		dataType: string
+		lineageTag: 2a470aa0-1a7a-4c92-a022-3ab4f3ce7676
+		dataCategory: Country
+		summarizeBy: none
+		sourceColumn: Sales territory country
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sales territory group'
+		dataType: string
+		lineageTag: 9bb4f2d5-b6b3-4868-8703-eda10036de2f
+		summarizeBy: none
+		sourceColumn: Sales territory group
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Sales Territory' = m
+		mode: import
+		queryGroup: dim
+		source =
+				let
+				    Source = Sql.Databases(Server, [CreateNavigationProperties=false]),
+				    AdventureWorksDW = Source{[Name=Database]}[Data],
+				    dbo_DimSalesTerritory = AdventureWorksDW{[Schema="dim",Item="SalesTerritory"]}[Data]
+				in
+				    dbo_DimSalesTerritory
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
